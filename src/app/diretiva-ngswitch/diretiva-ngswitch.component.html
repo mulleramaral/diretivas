@@ -1,0 +1,39 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" [class.active]="aba == 'home'" (click)="aba = 'home'">
+          <a class="nav-link">Home</a>
+        </li>
+        <li class="nav-item" [class.active]="aba == 'mapa'" (click)="aba = 'mapa'">
+          <a class="nav-link">Mapa</a>
+        </li>
+        <li class="nav-item" [class.active]="aba == 'lista'" (click)="aba = 'lista'">
+          <a class="nav-link">Lista</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" [ngSwitch]="aba">
+    <p *ngSwitchCase="'mapa'">Modo Mapa Ativado</p>
+    <p *ngSwitchCase="'lista'">Modo lista Ativado</p>
+    <p *ngSwitchDefault>Home</p>
+  </div>
+
+  <h5>Removendo o * e usando template</h5>
+
+  <div class="container" [ngSwitch]="aba">
+    <template [ngSwitchCase]="'mapa'">
+      <p>Modo Mapa Ativado</p>
+    </template>
+    <template [ngSwitchCase]="'lista'">
+      <p>Modo Lista Ativado</p>
+    </template>
+    <template ngSwitchDefault>
+      <p>Home</p>
+    </template>
+  </div>
+
